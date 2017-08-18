@@ -1,0 +1,70 @@
+@mixin transition-all {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s
+}
+
+@mixin background-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  @include transition-all;
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus,{
+    color: $color;
+    background-color: darken($background, 0.95);
+    border-color: darken($border, 0.93);
+  }
+}
+
+@mixin img-variant($border-size, $border, $opacity) {
+  border: $border-size;
+  border-color: $border;
+  opacity: $opacity;
+  @include transition-all;
+  &:hover,
+  &:focus
+  &.focus{
+    border: $border-size;
+    border-color: $border;
+    opacity: 0.7*$opacity;
+  }
+}
+
+@mixin socials {
+  padding: 20px;
+  @include transition-all;
+  &:hover,
+  &:focus,
+  &:active{
+  }
+}
+
+@mixin input-bordering($bor) {
+  border: $bor;
+  border-radius: none;
+  margin: 5px 0;
+  opacity: 0.5;
+  &:active,
+  &:hover{
+    opacity: 1;
+  }
+}
+
+@mixin main-font {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin sub-main-font {
+  font-family: 'Raleway', sans-serif;
+}

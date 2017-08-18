@@ -1,0 +1,346 @@
+@import "variables";
+@import "mixins";
+// General settings
+html, body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  @include main-font;
+  overflow-x: hidden;
+}
+
+hr{
+  max-width: 400px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+hr.short{
+  max-width: 200px;
+  color: #ffffff;
+}
+
+h1,h2,h3,h4,h5,h6{
+  @include main-font;
+}
+a{
+  @include transition-all;
+  text-decoration: none;
+  color: white;
+  &:hover,
+  &:focus{
+    color: white;
+  }
+}
+
+//Navbar
+  .navbar-custom{
+    margin-bottom: 0;
+    border-bottom: 1px solid fade(white, 80%);
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: $dark-theme;
+    @include sub-main-font;
+    .navbar-toggle {
+        color: white;
+        background-color: $grey-theme;
+        font-size: 14px;
+        text-transform: uppercase;
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+    .navbar-brand {
+        font-weight: 600;
+        font-size: 20px;
+        &:focus {
+            outline: none;
+        }
+    }
+    a {
+        color: white;
+    }
+    .nav {
+        li {
+            a {
+                -webkit-transition: background .3s ease-in-out;
+                -moz-transition: background .3s ease-in-out;
+                transition: background .3s ease-in-out;
+                &:hover {
+                    color: $dark-theme;
+                    outline: none;
+                    background-color: fade(white, 80%);
+                }
+                &:focus,
+                &:active {
+                    outline: none;
+                    background-color: transparent;
+                }
+            }
+            &.active {
+                outline: none;
+                a {
+                    background-color: fade(white, 30%);
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @media(min-width: 768px){
+      padding: 20px 0;
+      border-bottom: none;
+      background: transparent;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      transition: background .5s ease-in-out,padding .5s ease-in-out;
+      &.top-nav-collapse{
+        padding: 0;
+        background-color: $dark-theme;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+//Homepage header
+header{
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  @include background-cover;
+  background-position: center;
+  background-image: url('../img/header1.jpg');
+  text-align: center;
+  color: #ffffff;
+  .header-content{
+    position: relative;
+    text-align: center;
+    padding: 250px 15px; // check it later
+    width: 100%;
+    .header-content-inner{
+      h1{
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 3em;
+      }
+      hr{
+        margin: 20px auto;
+      }
+      p{
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      button{
+        font-size: 16px;
+        opacity: 0.8;
+      }
+    }
+  }
+  @media (min-width: 768px){
+    min-height: 100%;
+    .header-content{
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding: 0 50px;
+      .header-content-inner{
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        h1{
+          font-size: 5em;
+        }
+        p{
+          font-size: 30px;
+          max-width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        a{
+          font-size: 18px;
+          opacity: 0.8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+//Section
+section{
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+
+  //about section
+  &#about{
+    background-color: $dark-theme;
+    top: 100%;
+    padding-top: 100px;
+    padding-bottom: 0;
+    img{
+      @include img-variant(2px solid, white, 1);
+      margin-right: 50px;
+    }
+    h1{
+      font-size: 4em;
+      color: white;
+    }
+    span{
+      font-size: 2em;
+      color: rgb(64, 76, 79);
+    }
+    p{
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+
+.content-section{
+    background-color: $dark-theme;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  .banner-content{
+    padding: 50px 0;
+    width: 100%;
+    background: url(../img/banner.jpg) no-repeat center center scroll;
+    @include background-cover;
+    color: white;
+    min-height: 400px;
+    h2{
+      padding-top: 80px;
+      font-size: 3em;
+    }
+    p{
+      font-size: 20px;
+    }
+    a{
+      margin-top: 20px;
+    }
+  }
+}
+
+#services{
+  background: url('../img/section-background.png');
+  color: white;
+  @include sub-main-font;
+  .container{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    h1{
+      font-size: 3em;
+    }
+    span{
+      font-size: 1.5em;
+    }
+    p{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 1.5em;
+    }
+    img{
+      position: center;
+      margin: auto;
+      @include img-variant(2px solid, white, 1);
+      padding: 40px;
+      border-radius: 50px;
+    }
+  }
+}
+
+//footer
+footer{
+  color: white;
+  text-align: center;
+  position: relative;
+  @include background-cover;
+  background: url('../img/footer.jpg');
+  background-position: center;
+  min-height: auto;
+  width: 100%;
+  @media (min-width: 768px){
+    min-height: 70%;
+  }
+  .container{
+    padding-top: 100px;
+  }
+  .row{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    .col-lg-4{
+      padding: 25px;
+    }
+    img{
+      @include socials;
+    }
+  }
+
+}
+
+
+//Button styles
+.btn-primary, .btn-default{
+  @include sub-main-font;
+  @include button-variant(white,transparent,white);
+  &:hover{
+    @include button-variant($dark-theme, white, white);
+    font-weight: 800;
+  }
+}
+.btn{
+  @include sub-main-font;
+  font-weight: 700;
+  border: 2px solid;
+  border-radius: 200px;
+  text-transform: uppercase;
+}
+.btn-xl{
+  padding: 20px 70px;
+}
+
+.btn-lg{
+  padding: 15px 50px;
+}
+// Animation
+.slideanim{
+    visibility: hidden;
+}
+.slide{
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slide{
+    0%{
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@-webkit-keyframes slide{
+    0%{
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
